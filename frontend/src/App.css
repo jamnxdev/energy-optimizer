@@ -1,0 +1,78 @@
+.app {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px 20px 64px;
+  text-align: left;
+}
+
+header .subtitle {
+  color: var(--text-2, #a1a1aa);
+  max-width: 700px;
+}
+
+section {
+  margin-top: 32px;
+}
+
+.appliance-form .preset-buttons {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.appliance-form table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.appliance-form th,
+.appliance-form td {
+  padding: 6px 8px;
+  text-align: left;
+  border-bottom: 1px solid var(--border, #333);
+}
+
+.appliance-form input {
+  width: 70px;
+}
+
+.capacity-control input {
+  width: 80px;
+}
+
+.schedule-summary {
+  margin-top: 24px;
+  padding: 16px;
+  border-radius: 8px;
+  background: var(--card-bg, #1a1a1f);
+}
+
+.savings-headline {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.savings-amount {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #22c55e;
+}
+
+.cost-row {
+  display: flex;
+  gap: 20px;
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: var(--text-2, #a1a1aa);
+}
+
+.error {
+  color: #ef4444;
+}
+
+.infeasible-warning,
+.stale-warning {
+  color: #f97316;
+  margin-top: 8px;
+}
