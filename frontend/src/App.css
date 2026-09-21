@@ -76,3 +76,89 @@ section {
   color: #f97316;
   margin-top: 8px;
 }
+
+.schedule-timeline {
+  padding: 16px;
+  border-radius: 8px;
+  background: var(--card-bg, #1a1a1f);
+}
+
+.timeline-axis {
+  position: relative;
+  height: 18px;
+  font-size: 11px;
+  color: var(--text-2, #a1a1aa);
+  margin-left: 100px;
+}
+
+.timeline-axis span {
+  position: absolute;
+  transform: translateX(-50%);
+}
+
+.timeline-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.timeline-label {
+  width: 100px;
+  flex-shrink: 0;
+  font-size: 0.85rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-right: 8px;
+}
+
+.timeline-bars {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.timeline-bar-track {
+  position: relative;
+  height: 18px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 3px;
+}
+
+.timeline-bar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2px;
+  overflow: hidden;
+}
+
+.timeline-bar span {
+  font-size: 10px;
+  color: #0a0a0a;
+  font-weight: 600;
+  white-space: nowrap;
+  padding: 0 4px;
+}
+
+.timeline-legend {
+  display: flex;
+  gap: 16px;
+  margin-top: 12px;
+  font-size: 0.8rem;
+  color: var(--text-2, #a1a1aa);
+}
+
+.timeline-legend i {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  margin-right: 6px;
+  vertical-align: middle;
+}

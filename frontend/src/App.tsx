@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import { fetchPrices, fetchSchedule } from "./api";
 import { ApplianceForm } from "./components/ApplianceForm";
+import { CapacityChart } from "./components/CapacityChart";
 import { PriceChart } from "./components/PriceChart";
 import { ScheduleSummary } from "./components/ScheduleSummary";
+import { ScheduleTimeline } from "./components/ScheduleTimeline";
 import type { Load, PricePoint, ScheduleResponse } from "./types";
 
 function App() {
@@ -76,6 +78,35 @@ function App() {
 
       {scheduleError && <p className="error">Failed to compute schedule: {scheduleError}</p>}
       {schedule && <ScheduleSummary schedule={schedule} />}
+
+      {schedule && prices && loads.length > 0 && (
+        <section>
+          <h2>Schedule</h2>
+          <ScheduleTimeline
+            loads={loads}
+            prices={prices}
+            naiveRuns={schedule.naive.runs}
+            optimizedRuns={schedule.optimized.runs}
+          />
+        </section>
+      )}
+
+      {schedule && prices && loads.length > 0 && (
+        <section>
+          <h2>Shared capacity usage (optimized schedule)</h2>
+          <p className="subtitle">
+            Total household draw per hour under the optimized schedule, against the
+            configured capacity limit (red dashed line) — proof the constraint is
+            actually respected, not just asserted.
+          </p>
+          <CapacityChart
+            prices={prices}
+            runs={schedule.optimized.runs}
+            loads={loads}
+            capacityKw={schedule.capacity_kw}
+          />
+        </section>
+      )}
     </div>
   );
 }

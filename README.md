@@ -17,7 +17,9 @@ Data flow: the backend fetches and caches day-ahead hourly prices from aWATTar �
 frontend lets you configure shiftable loads (duration, power draw, allowed window) → the
 backend computes three schedules for the same instance (naive baseline, single-load
 optimal, and the full multi-load shared-capacity-constrained schedule) → the frontend
-renders all three over the price curve with the cost delta highlighted.
+renders the price curve with schedule overlays, a per-appliance timeline (naive vs.
+optimized), a savings summary, and a per-hour capacity-usage chart that makes the shared
+constraint visibly checkable rather than just backend-asserted.
 
 ## The scheduling problem
 
@@ -80,7 +82,8 @@ See `PORTFOLIO_PROJECT_5_ENERGY_OPTIMIZER.md` in the portfolio root for the full
 Implemented so far: real aWATTar integration with caching and staleness handling,
 single-load optimal scheduling, multi-load shared-capacity scheduling with its own exact
 algorithm, naive-baseline comparison, savings computation, PuLP-validated optimality, and
-a working frontend (price chart, appliance form, savings summary). Historical savings
-analysis over real past days and simple persisted appliance configs remain nice-to-haves.
+a working frontend (price chart with schedule overlays, appliance form, per-appliance
+timeline, savings summary, capacity-usage chart). Historical savings analysis over real
+past days and simple persisted appliance configs remain nice-to-haves.
 The backtracking search is worst-case exponential in the number of loads — a documented,
 accepted limitation at household scale (single digits of loads), not an oversight.
